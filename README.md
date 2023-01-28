@@ -35,7 +35,7 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 ## Installation
 
 1. Download the lastest release from the [releases tab](https://github.com/KenanTurner/WhoopRadioDesktop/releases).  
-2. Extract the installer and run.  
+2. Run the installer.
 3. Windows will warn you against installing. Click **More info** and then **Run anyway**.
 
 ## License
