@@ -13,9 +13,9 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 - [x] JSON upload/download
 - [x] Minimal memory footprint
 
-## In-Progress
+## In Progress
 
-- [x] Offline mode
+- [ ] Offline mode
 
 ## Installation
 
