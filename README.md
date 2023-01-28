@@ -4,6 +4,9 @@ WhoopRadio is a free and open-source desktop music streaming client.
 
 Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 
+![Screenshot 1](/screenshot_1.png)
+![Screenshot 2](/screenshot_2.png)
+
 ## Features
 
 - [x] Free (as in freedom)
@@ -17,6 +20,18 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 
 - [ ] Offline mode
 
+## Supported Platforms
+
+- [x] Windows
+- [x] MacOS
+- [x] Linux
+
+## Platform Binaries
+
+- [x] Windows
+- [ ] MacOS
+- [ ] Linux
+
 ## Installation
 
 1. Download the lastest release from the [releases tab](https://github.com/KenanTurner/WhoopRadioDesktop/releases).  
@@ -25,3 +40,5 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 
 ## License
 [GPL 3.0](/LICENSE.txt)
+
+**Spotify is not and will not be supported!**
