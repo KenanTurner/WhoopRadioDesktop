@@ -72,12 +72,7 @@
       "csp": null
     },
     "updater": {
-      "active": true,
-      "endpoints": [
-        "https://gist.github.com/KenanTurner/d9dfcdd03ba33adbbba38f65c2f95345"
-      ],
-      "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEEzMzBCMDhEMkU2RjYzMjMKUldRalkyOHVqYkF3bzRmNS93Ky9RSVV3N3oyanVFL1dnam9BSkw0T2xsNUtnc09KRStPN2l6Z1YK"
+      "active": false
     },
     "windows": [
       {
