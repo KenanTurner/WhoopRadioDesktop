@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Whoop Radio</title>
+		<meta name="description" content="WhoopRadio">
+		<meta name="author" content="Kenan Turner">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/controls.css">
+		<link rel="stylesheet" href="/css/edit.css">
+		<!-- <script type="module" src="/js/console.js"></script> -->
+		<script type="module" src="/js/main.js"></script>
+		<script type="module" src="/js/controls.js"></script>
+		<script type="module" src="/js/edit.js"></script>
+	</head>
+	<body>
+		<div class="modal hidden" id="info-container">
+			<div class="modal-content">
+				<div class="header">
+					<span>About:</span>
+				</div>
+				<hr>
+				<div>
+					WhoopRadio is a free and open-source desktop music streaming client.
+					WhoopRadio supports streaming from a variety of sites, including Youtube, Bandcamp, and SoundCloud.
+					More information and updates can be found at the <a href="https://github.com/KenanTurner/WhoopRadioDesktop" target="_blank">GitHub repository</a>.
+					WhoopRadio is the creation of Kenan Turner, a member of the Fightin' Texas Aggie Class of <b>'23</b>.
+				</div>
+				<div class="header">
+					<span>Keyboard Controls:<span>
+				</div>
+				<hr>
+				<pre>
+[SPACE]: Play/Pause
+[LEFT ARROW]: Rewind 5 seconds
+[RIGHT ARROW]: Fast forward 5 seconds
+[0-9]: Skip to 
+[,]: Previous track
+[.]: Next track
+[l]: Loop
+[s]: Shuffle
+[m]: Mute
+[i]: Open Info
+[q]: Open Queue
+[j]: Upload JSON
+[BACK]: Close Album/Queue
+[FORWARD]: Reopen Album/Queue</pre>
+			</div>
+		</div>
+		<div class="modal hidden" id="edit-track-container">
+			<div class="modal-content">
+				<form class="form">
+					<div class="header">
+						<label for="edit-meta">Autofill Track Metadata:</label>
+						<input type="url" id="edit-meta"/>
+						<input type="button" id="edit-meta-btn" value="Fetch" disabled/>
+					</div>
+					<hr>
+					<label for="edit-id" class="hidden">ID:</label>
+					<input type="number" id="edit-id" class="hidden"/>
+					<label for="edit-src">URL:</label>
+					<input type="url" id="edit-src" required/>
+					<label for="edit-path" class="hidden">(Optional) File Path:</label>
+					<input type="text" id="edit-path"  class="hidden"/>
+					<label for="edit-title">Title:</label>
+					<input type="text" id="edit-title" required/>
+					<label for="edit-album" class="hidden">Album ID:</label>
+					<input type="number" id="edit-album"  class="hidden" required/>
+					<label for="edit-duration" class="hidden">(Optional) Duration (Seconds):</label>
+					<input type="number" id="edit-duration" class="hidden"/>
+					<label for="edit-artwork-url">Artwork URL:</label>
+					<input type="url" id="edit-artwork-url"/>
+					<label for="edit-artwork-path" class="hidden">(Optional) Artwork Path:</label>
+					<input type="text" id="edit-artwork-path" class="hidden"/>
+					<div class="bottom">
+						<div class="row">
+							<input type="reset">
+							<input type="submit" disabled>
+						</div>
+						<input type="button" id="edit-delete" value="Delete Track" disabled/>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="modal hidden" id="edit-album-container">
+			<div class="modal-content">
+				<form class="form">
+					<div class="header">
+						<label for="edit-meta">Autofill Album Metadata:</label>
+						<input type="url" id="edit-meta"/>
+						<input type="button" id="edit-meta-btn" value="Fetch"/>
+					</div>
+					<hr>
+					<label for="edit-id" class="hidden">ID:</label>
+					<input type="number" id="edit-id" class="hidden"/>
+					<label for="edit-src">URL:</label>
+					<input type="url" id="edit-src"/>
+					<label for="edit-title">Title:</label>
+					<input type="text" id="edit-title" required/>
+					<label for="edit-artwork-url">Artwork URL:</label>
+					<input type="url" id="edit-artwork-url"/>
+					<label for="edit-artwork-path" class="hidden">(Optional) Artwork Path:</label>
+					<input type="text" id="edit-artwork-path" class="hidden"/>					
+					<div class="bottom">
+						<input type="button" id="edit-autofill" value="Submit and Autofill Tracks" disabled/>
+						<div class="row">
+							<input type="reset">
+							<input type="submit" disabled>
+						</div>
+						<input type="button" id="edit-delete" value="Delete Album" disabled/>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="modal hidden" id="upload-json-container">
+			<div class="modal-content">
+				<form class="form">
+					<div class="header">
+						<label>JSON Upload:</label>
+					</div>
+					<hr>
+					<label for="upload-type">Type:</label>
+					<select id="upload-type">
+						<option disabled="" selected="" value=""> -- select an option -- </option>
+						<option value="album">Album</option>
+						<option value="track">Track</option>
+					</select>
+					<label for="upload-json">JSON:</label>
+					<input type="file" id="upload-file" accept=".json"/>
+					<textarea id="upload-text"></textarea>
+					
+					<div class="bottom">
+						<div class="row">
+							<input type="reset">
+							<input type="submit" disabled>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="album-container" id="album-container">
+			<add-album id="add-album" class="hidden">
+				<svg class="icon invert" slot="album-image">
+					<use href="/images/sprite.min.svg#plus"></use>
+				</svg>
+				<div slot="album-title">Create New Album</div>
+			</add-album>
+		</div>
+		
+		<div id="track-container" class="track-container hidden">
+			<add-track id="add-track">
+				<svg class="invert" slot="track-image">
+					<use href="/images/sprite.min.svg#plus"></use>
+				</svg>
+				<span slot="track-title">Create New Track</span>
+				<span slot="track-src">or Upload Existing</span>
+			</add-track>
+		</div>
+		
+		<div id="queue-container" class="track-container hidden">
+			<queue-row id="queue-header">
+				<span slot="album-title">Up Next:</span>
+			</queue-row>
+		</div>
+		
+		<footer class="controls-container">
+            <div class="progress-container">
+                <div id="state-time">00:00</div>
+				<div id="title-container">
+					<div id="progress-bar">
+						<div id="elapsed"></div>
+						<div id="remaining"></div>
+					</div>
+					<div id="state-title">No Track Selected...</div>
+				</div>
+                <div id="state-duration">00:00</div>
+            </div>
+			<div id="controls">
+				<!-- <svg id="upload" class="invert">
+					<use href="/images/sprite.min.svg#data-transfer-upload"></use>
+				</svg> -->
+				<svg id="info" class="invert">
+					<use href="/images/sprite.min.svg#info"></use>
+					<title>Info</title>
+				</svg>
+				<svg id="queue" class="invert">
+					<use href="/images/sprite.min.svg#layers"></use>
+					<title>Open Queue</title>
+				</svg>
+				<svg id="loop" class="invert">
+					<use href="/images/sprite.min.svg#loop"></use>
+					<title>Loop</title>
+				</svg>
+				<svg id="previous" class="invert">
+					<use href="/images/sprite.min.svg#media-step-backward"></use>
+					<title>Previous</title>
+				</svg>
+				<svg id="rewind" class="invert">
+					<use href="/images/sprite.min.svg#media-skip-backward"></use>
+					<title>Rewind</title>
+				</svg>
+				<svg id="play" class="invert">
+					<use href="/images/sprite.min.svg#media-play"></use>
+					<title>Play</title>
+				</svg>
+				<svg id="forward" class="invert">
+					<use href="/images/sprite.min.svg#media-skip-forward"></use>
+					<title>Forward</title>
+				</svg>
+				<svg id="next" class="invert">
+					<use href="/images/sprite.min.svg#media-step-forward"></use>
+					<title>Next</title>
+				</svg>
+				
+				<svg id="shuffle" class="invert">
+					<use href="/images/sprite.min.svg#random"></use>
+					<title>Shuffle</title>
+				</svg>
+				<svg id="mute" class="invert">
+					<use href="/images/sprite.min.svg#volume-high"></use>
+					<title>Mute</title>
+				</svg>
+				<!-- <svg id="download" class="invert">
+					<use href="/images/sprite.min.svg#data-transfer-download"></use>
+				</svg> -->
+				
+			</div>
+		</footer>
+	</body>
+</html>

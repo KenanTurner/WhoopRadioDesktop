@@ -1,0 +1,125 @@
+<style>
+	* {
+		box-sizing: border-box;
+	}
+	:host {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		overflow: hidden;
+		max-height: 60px;
+		max-width: 100vw;
+	}
+	.icon {
+		box-sizing: border-box;
+		padding: 4px;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+	}
+	.invert {
+		filter: invert(98%) sepia(77%) saturate(11%) hue-rotate(197deg) brightness(115%) contrast(80%) drop-shadow(2px 2px 2px rgb(0 0 0));
+	}
+	.img-container {
+		width: 60px;
+		height: 60px;
+		padding: 3px;
+	}
+	.text-container {
+		flex: 1 0 auto;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		padding: 5px;
+	}
+	.album-title {
+		height: 30px;
+		position: relative;
+	}
+	slot[name="album-title"], ::slotted([slot="album-title"]){
+		color: #ffffff;
+		text-shadow: 2px 2px 2px #000000;
+		font-size: 26px;
+		line-height: initial;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+	.album-src {
+		height: 20px;
+		position: relative;
+	}
+	slot[name="album-src"], ::slotted([slot="album-src"]){
+		color: #E6E6E6;
+		text-shadow: 2px 2px 2px #000000;
+		font-size: 18px;
+		line-height: initial;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+	.bg-img-container {
+	    width: 100%;
+		height: 100%;
+		overflow: hidden;
+		z-index: -1;
+		margin-top: -60px;
+	}
+	::slotted([slot="album-image"]) {
+		display: block;
+		filter: blur(10px);
+		-webkit-filter: blur(10px);
+		height: 110%;
+		width: 110%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.rotate {
+		transform: rotate(180deg);
+	}
+	.default {
+		width: 100%;
+		height: 100%;
+		background: rgb(48, 48, 48);
+	}
+</style>
+<div class="img-container" id="home-btn">
+	<svg class="icon invert">
+		<use href="/images/sprite.min.svg#home"></use>
+	</svg>
+</div>
+<div class="text-container">
+	<div class="album-title">
+		<slot name="album-title"></slot>
+	</div>
+	<div class="album-src">
+		<slot name="album-src"></slot>
+	</div>
+</div>
+<div class="img-container" id="download-btn">
+	<svg class="icon invert">
+		<use href="/images/sprite.min.svg#data-transfer-download"></use>
+	</svg>
+</div>
+<div class="img-container" id="load-btn">
+	<svg class="icon invert">
+		<use href="/images/sprite.min.svg#chevron-bottom"></use>
+	</svg>
+</div>
+<div class="img-container" id="edit-btn">
+	<svg class="icon invert">
+		<use href="/images/sprite.min.svg#pencil"></use>
+	</svg>
+</div>
+<div class="bg-img-container">
+	<slot name="album-image">
+		<div class="bg-img default" style=""></div>
+	</slot>
+</div>

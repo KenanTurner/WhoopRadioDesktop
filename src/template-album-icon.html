@@ -1,0 +1,58 @@
+<style>
+	:host {
+		box-sizing: border-box;
+		width: 200px;
+		height: 220px;
+		padding: 10px !important;
+		color: #E6E6E6;
+		box-shadow: inset 0px 0px 0px 1px #999999;
+		border-radius: 15px;
+		background-color: #303030;
+		display: flex;
+		flex-direction: column;
+		cursor: pointer;
+	}
+	.icon {
+		box-sizing: border-box;
+		padding: 10px;
+		width: 100%;
+		height: 100%;
+	}
+	.invert {
+		filter: invert(98%) sepia(77%) saturate(11%) hue-rotate(197deg) brightness(115%) contrast(80%);
+	}
+	.img-container {
+		height: 180px;
+		box-sizing: border-box;
+	}
+	::slotted([slot="album-image"]){
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 10px;
+	}
+	.text-container {
+		height: 20px;
+		position: relative;
+	}
+	slot[name="album-title"], ::slotted([slot="album-title"]){
+		font-size: 20px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		position: absolute;
+		top: -3px;
+		left: 0;
+		right: 0;
+	}
+</style>
+<div class="img-container">
+	<slot name="album-image">
+		<svg class="icon invert">
+			<use href="/images/sprite.min.svg#musical-note"></use>
+		</svg>
+	</slot>
+</div>
+<div class="text-container">
+	<slot name="album-title">Template Title</slot>
+</div>

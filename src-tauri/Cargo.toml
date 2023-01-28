@@ -1,0 +1,33 @@
+[package]
+name = "whoop-radio"
+version = "0.0.0"
+description = "A free and open-source desktop music streaming client."
+authors = ["Kenan Turner"]
+license = "GPL-3.0"
+repository = "https://github.com/KenanTurner/WhoopRadioDesktop"
+edition = "2021"
+rust-version = "1.57"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+tauri-build = { version = "1.2", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "1.2", features = ["dialog-confirm", "dialog-message", "path-all", "protocol-asset", "shell-open", "shell-sidecar", "updater"] }
+percent-encoding = "2.2.0"
+
+[dependencies.tauri-plugin-sql]
+git = "https://github.com/tauri-apps/plugins-workspace"
+branch = "dev"
+features = ["sqlite"] # or "postgres", or "mysql"
+
+[features]
+# by default Tauri runs in production mode
+# when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL
+default = ["custom-protocol"]
+# this feature is used used for production builds where `devPath` points to the filesystem
+# DO NOT remove this
+custom-protocol = ["tauri/custom-protocol"]

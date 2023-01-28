@@ -1,0 +1,93 @@
+{
+  "build": {
+    "beforeDevCommand": "",
+    "beforeBuildCommand": "",
+    "devPath": "../src",
+    "distDir": "../src",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "WhoopRadio",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+		"open": true,
+		"sidecar": true,
+        "scope": [
+          { "name": "binaries/yt-dlp", "sidecar": true, "args": true}
+        ]
+      },
+	  "dialog": {
+		"all": false,
+		"confirm": true,
+		"message": true
+	  },
+	  "path": {
+		"all": true
+	  },
+	  "protocol": {
+		"asset": true,
+		"assetScope": ["*"]
+	  }
+    },
+    "bundle": {
+      "active": true,
+      "category": "Music",
+      "copyright": "GPL-3.0",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [
+		"binaries/yt-dlp"
+	  ],
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "WhoopRadio",
+      "longDescription": "WhoopRadio is a free and open-source desktop music streaming client.\nWhoopRadio supports streaming from a variety of sites, including Youtube, Bandcamp, and SoundCloud.\nMore information and updates can be found at https://github.com/KenanTurner/WhoopRadioDesktop. WhoopRadio is the creation of Kenan Turner, a member of the Fightin' Texas Aggie Class of '23.",
+      "macOS": {
+        "entitlements": null,
+        "exceptionDomain": "",
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
+      },
+      "shortDescription": "A free and open-source desktop music streaming client.",
+      "targets": "all",
+      "windows": {
+        "certificateThumbprint": null,
+        "digestAlgorithm": "sha256",
+        "timestampUrl": ""
+      }
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": true,
+      "endpoints": [
+        "https://gist.github.com/KenanTurner/d9dfcdd03ba33adbbba38f65c2f95345"
+      ],
+      "dialog": true,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEEzMzBCMDhEMkU2RjYzMjMKUldRalkyOHVqYkF3bzRmNS93Ky9RSVV3N3oyanVFL1dnam9BSkw0T2xsNUtnc09KRStPN2l6Z1YK"
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "WhoopRadio",
+        "width": 800,
+		"fileDropEnabled": false
+      }
+    ]
+  }
+}
