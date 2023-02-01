@@ -30,7 +30,7 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 
 - [x] Windows
 - [ ] MacOS
-- [ ] Linux
+- [x] Linux
 
 ## Installation
 
