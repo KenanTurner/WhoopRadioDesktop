@@ -42,7 +42,7 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 
 If you are having issues playing or updating tracks, follow the steps below:
 
-1. Update WhoopRadio to the [latest release of WhoopRadio](https://github.com/KenanTurner/WhoopRadioDesktop/releases/latest)  
+1. Update WhoopRadio to the [latest release](https://github.com/KenanTurner/WhoopRadioDesktop/releases/latest)  
 2. Try updating yt-dlp manually as described in the [following section](https://github.com/KenanTurner/WhoopRadioDesktop#updating-yt-dlp-manually)  
 3. Open a [new issue](https://github.com/KenanTurner/WhoopRadioDesktop/issues)  
 
