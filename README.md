@@ -41,4 +41,17 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 ## License
 [GPL 3.0](/LICENSE.txt)
 
-**Spotify is not and will not be supported!**
+## Issues
+
+If you are having issues playing or updating tracks, follow the steps below:
+
+1. Download and install the [latest release of WhoopRadio](https://github.com/KenanTurner/WhoopRadioDesktop/releases)  
+2. Try updating yt-dlp manually as described in the [following section](https://github.com/KenanTurner/WhoopRadioDesktop#updating-yt-dlp-manually)  
+3. Open a [new issue](https://github.com/KenanTurner/WhoopRadioDesktop/issues)  
+
+## Updating yt-dlp manually
+
+1. Download the latest release of [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+2. Copy and replace yt-dlp at `C:\Program Files\WhoopRadio` with the downloaded file
+
+## **Spotify is not and will not be supported!**
