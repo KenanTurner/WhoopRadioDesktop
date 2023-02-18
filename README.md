@@ -38,9 +38,6 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 2. Run the installer.
 3. Windows will warn you against installing. Click **More info** and then **Run anyway**.
 
-## License
-[GPL 3.0](/LICENSE.txt)
-
 ## Issues
 
 If you are having issues playing or updating tracks, follow the steps below:
@@ -55,3 +52,6 @@ If you are having issues playing or updating tracks, follow the steps below:
 2. Copy and replace yt-dlp at `C:\Program Files\WhoopRadio` with the downloaded file
 
 ## **Spotify is not and will not be supported!**
+
+## License
+[GPL 3.0](/LICENSE.txt)
