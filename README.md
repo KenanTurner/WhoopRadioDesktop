@@ -34,7 +34,7 @@ Powered by [Tauri](https://github.com/tauri-apps/tauri) and [yt-dlp](https://git
 
 ## Installation
 
-1. Download the lastest release from the [releases tab](https://github.com/KenanTurner/WhoopRadioDesktop/releases/latest).  
+1. Download the [latest release of WhoopRadio](https://github.com/KenanTurner/WhoopRadioDesktop/releases/latest).  
 2. Run the installer.
 3. Windows will warn you against installing. Click **More info** and then **Run anyway**.
 
